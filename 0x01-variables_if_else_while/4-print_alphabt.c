@@ -4,7 +4,7 @@
  * main - A program that prints all the alphabet except
  * q and e in lowercase followed by a new line
  *
- * Returns: Always 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
