@@ -13,7 +13,7 @@ int main(void)
 	while (i < 58)
 	{
 		j = 48;
-		while (j < 57)
+		while (j < 58)
 		{
 			k = i;
 			while (k < 58)
@@ -29,7 +29,7 @@ int main(void)
 					putchar(' ');
 					putchar(k);
 					putchar(l);
-					if (i == 57 && j == 56 && k == 57 && l == 57)
+					if (i == 57 && j == 57 && k == 57 && l == 57)
 						break;
 					putchar(',');
 					putchar(' ');
