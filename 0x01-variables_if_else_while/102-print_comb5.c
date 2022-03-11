@@ -24,7 +24,10 @@ int main(void)
 			{
 				int l;
 
-				l = j + 1;
+				if (i == k)
+					l = j + 1;
+				else
+					l = 48;
 				while (l < 58)
 				{
 					putchar(i);
