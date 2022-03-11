@@ -7,23 +7,17 @@
  */
 int main(void)
 {
-	int i;
+	int i, j, k, l;
 
 	i = 48;
 	while (i < 58)
 	{
-		int j;
-
 		j = 48;
 		while (j < 57)
 		{
-			int k;
-
 			k = i;
 			while (k < 58)
 			{
-				int l;
-
 				if (i == k)
 					l = j + 1;
 				else
