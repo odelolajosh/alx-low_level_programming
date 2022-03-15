@@ -7,16 +7,17 @@
  */
 int main(void)
 {
-	int a, b, c, count;
+	double a, b, c;
+	int count;
 
 	a = 1;
 	b = 2;
 
-	printf("%d, %d", a, b);
-	for (count = 0; count < 50; count++)
+	printf("%.0f, %.0f", a, b);
+	for (count = 0; count < 48; count++)
 	{
 		c = a + b;
-		printf(", %d", c);
+		printf(", %.0f", c);
 		a = b;
 		b = c;
 	}
