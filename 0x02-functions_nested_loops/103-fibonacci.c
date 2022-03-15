@@ -7,20 +7,21 @@
  */
 int main(void)
 {
-	long int a, b, c;
-	int count;
+	long int a, b, c, sum;
 
 	a = 1;
 	b = 2;
-
-	printf("%ld, %ld", a, b);
-	for (count = 0; count < 48; count++)
+	sum = b;
+	c = a + b;
+	
+	while (c <= 4000000)
 	{
 		c = a + b;
-		printf(", %ld", c);
+		if (c % 2 == 0)
+			sum += c;
 		a = b;
 		b = c;
 	}
-	printf("\n");
+	printf("%ld\n", sum);
 	return (0);
 }
