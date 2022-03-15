@@ -1,3 +1,3 @@
 # ignore execute folder
 x/
-?-main.c
+[0-9]-main.c
