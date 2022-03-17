@@ -22,11 +22,17 @@ int main(void)
 	}
 
 	for (k = 3; k <= sqrt(n); k = k + 2)
+	{
 		if (n % k == 0)
 		{
 			mp = k;
 			n = n / k;
 		}
+	}
+
+	if (n > 2)
+		mp = n;
+
 	printf("%ld\n", mp);
 	return (0);
 }
