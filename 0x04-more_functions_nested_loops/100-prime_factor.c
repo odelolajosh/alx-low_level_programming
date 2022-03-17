@@ -8,15 +8,25 @@
  */
 int main(void)
 {
-	long int number, largestPrime;
+	long int n, mp;
 	int k;
 
 	k = 1;
-	number = 612852475143;
+	mp = -1;
+	n = 612852475143;
 
-	for (k = 2; k <= sqrt(number); k++)
-		if (number % k == 0 && largestPrime > k)
-			largestPrime = k;
-	printf("%ld\n", largestPrime);
+	while (n % 2 == 0)
+	{
+		mp = 2;
+		n = n / 2;
+	}
+
+	for (k = 3; k <= sqrt(n); k = k + 2)
+		if (n % k == 0)
+		{
+			mp = k;
+			n = n / k;
+		}
+	printf("%ld\n", mp);
 	return (0);
 }
