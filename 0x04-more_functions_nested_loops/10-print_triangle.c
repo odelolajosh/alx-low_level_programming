@@ -9,11 +9,11 @@
  */
 void print_triangle(int size)
 {
-	int l ,b;
+	int l, b;
 
 	if (size <= 0)
 	{
-		_putchar('\n');
+		putchar('\n');
 		return;
 	}
 
