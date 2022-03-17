@@ -22,8 +22,6 @@ void print_number(int n)
 		hp *= 10;
 	};
 
-	
-
 	for (; hp >= 1; hp /= 10)
 		_putchar(((n / hp) % 10) + '0');
 }
