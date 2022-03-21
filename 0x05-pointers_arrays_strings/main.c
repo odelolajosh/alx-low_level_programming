@@ -8,11 +8,9 @@
  *     */
 int main(void)
 {
-	    char s1[5] = "HZZZ";
-	        char *ptr;
-		
-		    ptr = _strcpy(s1, "h\n");
-		        printf("%s", s1);
-			    printf("%s", ptr);
-			        return (0);
+char *str;
+
+    str = "0123456789";
+        puts_half(str);
+	return (0);
 }
