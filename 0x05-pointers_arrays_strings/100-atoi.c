@@ -36,5 +36,5 @@ int _atoi(char *s)
 		p /= 10;
 	}
 
-	return sign * res;
+	return (sign * res);
 }
