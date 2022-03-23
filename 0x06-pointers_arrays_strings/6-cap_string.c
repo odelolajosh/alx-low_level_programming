@@ -10,7 +10,7 @@
 char *cap_string(char *s)
 {
 	int count = 0, i;
-	int sepWords[] = {' ', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
+	int sepWords[] = {'\n', '\t', ' ', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
 
 	if (*(s + count) > 97 && *(s + count) <= 122)
 		*(s + count) = *(s + count) - 32;
