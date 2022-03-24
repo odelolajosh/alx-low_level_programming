@@ -8,7 +8,7 @@
  */
 void print_buffer(char *b, int size)
 {
-	int c = 0, chPerLine = 0;
+	int j, k, l;
 
 	if (size <= 0)
 	{
