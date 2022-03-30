@@ -16,7 +16,7 @@ int _strlen(char *s)
 }
 
 /**
- * _compareWithIterator - compare the char at index l and r
+ * _compareWithIterators - compare the char at index l and r
  *
  * @s: given string
  * @l: left index iterator
@@ -31,8 +31,7 @@ int _compareWithIterators(char *s, int l, int r)
 	if (*(s + l) == *(s + r))
 		return (0 + _compareWithIterators(s, l + 1, r - 1));
 	return (0);
-}	
-
+}
 
 /**
  * is_palindrome - checks if a string is a palindrome
