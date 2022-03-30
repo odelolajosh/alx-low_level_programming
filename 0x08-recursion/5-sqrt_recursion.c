@@ -6,14 +6,14 @@
  * @sqrt: sqrt counter
  * @num: number to find sqrt for
  *
- * Return: the square root of num 
+ * Return: the square root of num
  */
 int _sqrt(int sqrt, int num)
 {
 	if (sqrt * sqrt == num)
-		return sqrt;
+		return (sqrt);
 	if (sqrt * sqrt > num)
-		return -1;
+		return (-1);
 	if (sqrt * sqrt < num)
 		sqrt++;
 	return (_sqrt(sqrt, num));

@@ -30,6 +30,6 @@ int is_prime_op(unsigned int n, unsigned int i)
 int is_prime_number(int n)
 {
 	if (n <= 1)
-		return 0;
+		return (0);
 	return (is_prime_op(n, 2));
 }
