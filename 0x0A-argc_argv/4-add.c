@@ -8,14 +8,14 @@
  *
  * Return: 1 if s contains a non digit otherwise return 0
  */
-int containsNonDigit(char* s)
+int containsNonDigit(char *s)
 {
 	int i;
 
 	for (i = 0; s[i] != '\0'; i++)
 		if (s[i] < '0' || s[i] > '9')
-			return 1;
-	return 0;
+			return (1);
+	return (0);
 }
 
 /**
@@ -26,7 +26,7 @@ int containsNonDigit(char* s)
  *
  * Return: 0
  */
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	int sum = 0;
 
