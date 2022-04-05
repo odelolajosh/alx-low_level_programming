@@ -3,18 +3,18 @@
 #include <stdio.h>
 
 /**
- * free_grid - frees a 2 dimensional array
+ * free_ch_grid - frees a 2 dimensional array
  *
  * @grid: 2 dimensional array of char
- * @n: row count
+ * @row: row count
  */
-void free_ch_grid(char **grid, unsigned int height)
+void free_ch_grid(char **grid, unsigned int row)
 {
-	if (grid != NULL && height != 0)
+	if (grid != NULL && row != 0)
 	{
-		for (; height > 0; height--)
-			free(grid[height]);
-		free(grid[height]);
+		for (; row > 0; row--)
+			free(grid[row]);
+		free(grid[row]);
 		free(grid);
 	}
 }
@@ -38,7 +38,6 @@ char **strtow(char *str)
 		if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
 			arrLen++;
 
-	printf("arrlen %d\n", arrLen);
 	ptr = malloc(sizeof(char *) * (arrLen + 1));
 	if (ptr == NULL)
 		return (NULL);
@@ -58,7 +57,6 @@ char **strtow(char *str)
 
 				for (i = 0; ws < c; ws++, i++)
 					ptr[wc][i] = str[ws];
-
 				ptr[wc][i] = '\0';
 				wc++;
 			}
