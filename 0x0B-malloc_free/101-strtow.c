@@ -38,13 +38,14 @@ char **strtow(char *str)
 		if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
 			arrLen++;
 
+	printf("arrlen %d\n", arrLen);
 	ptr = malloc(sizeof(char *) * (arrLen + 1));
 	if (ptr == NULL)
 		return (NULL);
 
-	for (c = wc = ws = 0; str[c] != '\0'; c++)
+	for (c = wc = ws = 0; ; c++)
 	{
-		if (str[c] == ' ' || str[c + 1] == '\0')
+		if (str[c] == ' ' || str[c] == '\0')
 		{
 			if (c > ws)
 			{
@@ -63,6 +64,8 @@ char **strtow(char *str)
 			}
 			ws = c + 1;
 		}
+		if (str[c] == '\0')
+			break;
 	}
 	ptr[wc] = NULL;
 	return (ptr);
