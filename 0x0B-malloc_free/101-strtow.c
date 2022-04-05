@@ -33,14 +33,15 @@ char **strtow(char *str)
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-
 	for (c = arrLen = 0; str[c] != '\0'; c++)
 		if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
 			arrLen++;
-
 	ptr = malloc(sizeof(char *) * (arrLen + 1));
-	if (ptr == NULL)
+	if (ptr == NULL || arrLen == 0)
+	{
+		free(ptr);
 		return (NULL);
+	}
 
 	for (c = wc = ws = 0; ; c++)
 	{
@@ -48,7 +49,7 @@ char **strtow(char *str)
 		{
 			if (c > ws)
 			{
-				ptr[wc] = malloc(sizeof(char) * (c - ws + 2));
+				ptr[wc] = malloc(sizeof(char) * (c - ws + 1));
 				if (ptr[wc] == NULL)
 				{
 					free_ch_grid(ptr, wc);
