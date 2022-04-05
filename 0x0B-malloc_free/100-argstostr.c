@@ -1,6 +1,14 @@
 #include "holberton.h"
 #include <stdlib.h>
 
+/**
+ * argstostr - concatenates args to a string with newline delimiter
+ *
+ * @ac: argument count
+ * @av: argument vector
+ *
+ * Return: a pointer to the string output
+ */
 char *argstostr(int ac, char **av)
 {
 	char *ptr;
@@ -37,6 +45,5 @@ char *argstostr(int ac, char **av)
 	}
 	ptr[k] = '\0';
 
-	return ptr;
+	return (ptr);
 }
-
