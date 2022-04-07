@@ -30,8 +30,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n >= len2)
 		n = len2;
 
-	len = len1 + n + 1;
-	ptr = malloc(sizeof(*ptr) * len);
+	len = len1 + n;
+	ptr = malloc(sizeof(*ptr) * (len + 1));
 
 	if (ptr == NULL)
 		return (NULL);
