@@ -60,7 +60,7 @@ int num_len(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 		if (s[i] < '0' || s[i] > '9')
-			return (0);
+			printf("Error\n"), exit(98);
 	return (i);
 }
 
@@ -99,14 +99,17 @@ char *alloc_string(int len)
  */
 int main(int argc, char **argv)
 {
-	int len1, len2, len, i, j, k, c = 0, ca = 0, pr, pa = 0, u = 0;
+	int len1, len2, len, i, j, k, c = 0, ca = 0, pr, pa, u = 0;
 	char *p;
 
 	if (argc != 3)
 		printf("Error\n"), exit(98);
+	
 	len1 = num_len(argv[1]), len2 = num_len(argv[2]);
-	is_zero(argv[1]), is_zero(argv[2]), len = len1 + len2;
+	is_zero(argv[1]), is_zero(argv[2]);
+	len = len1 + len2;
 	p = alloc_string(len);
+
 	for (i = len1 - 1, u = 0; i >= 0; i--, u++)
 	{
 		for (j = len2 - 1, k = len - 1 - u; j >= 0; j--, k--)
@@ -122,6 +125,7 @@ int main(int argc, char **argv)
 		p[k] = (c + ca + (p[k] - '0')) + '0';
 		c = 0, ca = 0;
 	}
+
 	p = make_significant(p, len);
 	printf("%s\n", p);
 	return (0);
