@@ -1,6 +1,19 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
+
+/**
+ * _print - prints a string
+ *
+ * @s: string
+ */
+void _print(char *s)
+{
+	int i = 0;
+
+	for (; s[i] != '\0'; i++)
+		_putchar(s[i]);
+	_putchar('\n');
+}
 
 /**
  * is_zero - exits if a number represented
@@ -15,7 +28,7 @@ void is_zero(char *s)
 	for (i = 0; s[i]; i++)
 		if (s[i] != '0')
 			return;
-	printf("0\n");
+	_print("0\n");
 	exit(0);
 }
 
@@ -29,11 +42,8 @@ void print_significant(char *s)
 	int i = 0;
 	while (s[i] == '0' && s[i] != '\0')
 		i++;
-	for (; s[i] != '\0'; i++)
-		_putchar(s[i]);
-	_putchar('\n');
+	_print(s + i);
 }
-
 
 /**
  * num_len - checks for the length of a number in base 10
@@ -50,7 +60,7 @@ int num_len(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 		if (s[i] < '0' || s[i] > '9')
-			printf("Error\n"), exit(98);
+			_print("Error\n"), exit(98);
 	return (i);
 }
 
@@ -69,7 +79,7 @@ char *alloc_string(int len)
 
 	ptr = malloc(sizeof(*ptr) * len);
 	if (ptr == NULL)
-		printf("Error\n"), exit(98);
+		_print("Error\n"), exit(98);
 
 	/* Initialize ptr */
 	for (i = 0; i < len; i++)
@@ -93,7 +103,7 @@ int main(int argc, char **argv)
 	char *p;
 
 	if (argc != 3)
-		printf("Error\n"), exit(98);
+		_print("Error\n"), exit(98);
 
 	len1 = num_len(argv[1]), len2 = num_len(argv[2]);
 	is_zero(argv[1]), is_zero(argv[2]);
