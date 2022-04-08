@@ -27,27 +27,10 @@ void is_zero(char *s)
 void print_significant(char *s)
 {
 	int i = 0;
-	/*
-	 * , j = 0;
-	 * char *p;
-	 */
-
 	while (s[i] == '0' && s[i] != '\0')
 		i++;
 
-	for (; s[i] != '\0'; i++)
-		_putchar(s[i]);
-	_putchar('\n');
-	/*
-	 * if (i == 0)
-		return (s);
-
-	p = malloc(sizeof(*s) * (len - i));
-	for (; s[i] != '\0'; i++, j++)
-		p[j] = s[i];
-	free(s);
-	return (p);
-	*/
+	printf("%s\n", s + i);
 }
 
 
