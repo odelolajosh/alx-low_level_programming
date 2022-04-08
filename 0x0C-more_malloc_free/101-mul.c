@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * _print - prints a string
@@ -78,7 +79,7 @@ char *alloc_string(int len)
 	char *ptr;
 	int i;
 
-	ptr = malloc(sizeof(*ptr) * len);
+	ptr = malloc(sizeof(*ptr) * (len + 1));
 	if (ptr == NULL)
 		_print("Error"), exit(98);
 
