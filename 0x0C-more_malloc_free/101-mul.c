@@ -28,7 +28,7 @@ void is_zero(char *s)
 	for (i = 0; s[i]; i++)
 		if (s[i] != '0')
 			return;
-	_print("0\n");
+	_print("0");
 	exit(0);
 }
 
@@ -60,7 +60,7 @@ int num_len(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 		if (s[i] < '0' || s[i] > '9')
-			_print("Error\n"), exit(98);
+			_print("Error"), exit(98);
 	return (i);
 }
 
@@ -79,7 +79,7 @@ char *alloc_string(int len)
 
 	ptr = malloc(sizeof(*ptr) * len);
 	if (ptr == NULL)
-		_print("Error\n"), exit(98);
+		_print("Error"), exit(98);
 
 	/* Initialize ptr */
 	for (i = 0; i < len; i++)
@@ -103,7 +103,7 @@ int main(int argc, char **argv)
 	char *p;
 
 	if (argc != 3)
-		_print("Error\n"), exit(98);
+		_print("Error"), exit(98);
 
 	len1 = num_len(argv[1]), len2 = num_len(argv[2]);
 	is_zero(argv[1]), is_zero(argv[2]);
