@@ -29,8 +29,9 @@ void print_significant(char *s)
 	int i = 0;
 	while (s[i] == '0' && s[i] != '\0')
 		i++;
-
-	printf("%s\n", s + i);
+	for (; s[i] != '\0'; i++)
+		_putchar(s[i]);
+	_putchar('\n');
 }
 
 
