@@ -66,6 +66,30 @@ int num_len(char *s)
 }
 
 /**
+ * alloc_string - allocate and initialize
+ * string to a memory space
+ *
+ * @len: length of string
+ *
+ * Return: pointer to the string
+ */
+char *alloc_string(int len)
+{
+	char *ptr;
+	int i;
+
+	ptr = malloc(sizeof(*ptr) * (len + 1));
+	if (ptr == NULL)
+		_print("Error"), exit(98);
+
+	/* Initialize ptr */
+	for (i = 0; i < len; i++)
+		ptr[i] = '0';
+	ptr[i] = '\0';
+	return (ptr);
+}
+
+/**
  * main - multiplies two positive numbers
  * passed as arguments
  *
@@ -85,15 +109,8 @@ int main(int argc, char **argv)
 	len1 = num_len(argv[1]), len2 = num_len(argv[2]);
 	is_zero(argv[1]), is_zero(argv[2]);
 	len = len1 + len2;
-	/* Allocate len + 1 for string */
-	p = malloc(sizeof(*ptr) * (len + 1));
-	if (p == NULL)
-		_print("Error"), exit(98);
-	/* Initialize string to zero */
-	for (i = 0; i < len; i++)
-		p[i] = '0';
-	p[i] = '\0';
-	/* Perform multiplication */
+	p = alloc_string(len);
+
 	for (i = len1 - 1, u = 0; i >= 0; i--, u++)
 	{
 		for (j = len2 - 1, k = len - 1 - u; j >= 0; j--, k--)
@@ -109,7 +126,7 @@ int main(int argc, char **argv)
 		p[k] = (c + ca + (p[k] - '0')) + '0';
 		c = 0, ca = 0;
 	}
-	/* Print, removing initial 0s */
+
 	print_significant(p);
 	free(p);
 	return (0);
