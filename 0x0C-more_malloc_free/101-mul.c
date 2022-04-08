@@ -1,5 +1,6 @@
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * is_zero - exits if a number represented
@@ -19,22 +20,26 @@ void is_zero(char *s)
 }
 
 /**
- * make_significant - remove zero from the start of a string
+ * print_significant - remove zero from the start of a string
  *
  * @s: given string
- * @len: len of string
- *
- * Return: a pointer to the significant version
  */
-char *make_significant(char *s, int len)
+void print_significant(char *s)
 {
-	int i = 0, j = 0;
-	char *p;
+	int i = 0;
+	/*
+	 * , j = 0;
+	 * char *p;
+	 */
 
 	while (s[i] == '0' && s[i] != '\0')
 		i++;
 
-	if (i == 0)
+	for (; s[i] != '\0'; i++)
+		_putchar(s[i]);
+	_putchar('\n');
+	/*
+	 * if (i == 0)
 		return (s);
 
 	p = malloc(sizeof(*s) * (len - i));
@@ -42,6 +47,7 @@ char *make_significant(char *s, int len)
 		p[j] = s[i];
 	free(s);
 	return (p);
+	*/
 }
 
 
@@ -104,7 +110,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 		printf("Error\n"), exit(98);
-	
+
 	len1 = num_len(argv[1]), len2 = num_len(argv[2]);
 	is_zero(argv[1]), is_zero(argv[2]);
 	len = len1 + len2;
@@ -126,7 +132,6 @@ int main(int argc, char **argv)
 		c = 0, ca = 0;
 	}
 
-	p = make_significant(p, len);
-	printf("%s\n", p);
+	print_significant(p);
 	return (0);
 }
