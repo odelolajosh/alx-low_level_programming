@@ -40,6 +40,7 @@ void is_zero(char *s)
 void print_significant(char *s)
 {
 	int i = 0;
+
 	while (s[i] == '0' && s[i] != '\0')
 		i++;
 	_print(s + i);
@@ -127,5 +128,6 @@ int main(int argc, char **argv)
 	}
 
 	print_significant(p);
+	free(p);
 	return (0);
 }
