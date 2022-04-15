@@ -9,19 +9,15 @@
 void print_all(const char * const format, ...)
 {
 	va_list valist;
-	unsigned int i = 0, j = 0, len = 0, c = 0;
+	unsigned int i = 0, c = 0;
 	char *str;
 
-	while (format && format[j])
-	{
-		if (format[j] == 'c' || format[j] == 'i' ||
-				format[j] == 'f' || format[j] == 's')
-			len++;
-		j++;
-	}
 	va_start(valist, format);
 	while (format && format[i])
 	{
+		if (c)
+			printf(", "), c = 0;
+
 		switch (format[i])
 		{
 			case 'c':
@@ -42,9 +38,9 @@ void print_all(const char * const format, ...)
 				}
 				printf("(nil)");
 				break;
+			default:
+				c = 0;
 		}
-		if  (i < len && c)
-			printf(", "), c = 0;
 		i++;
 	}
 	printf("\n"), va_end(valist);
