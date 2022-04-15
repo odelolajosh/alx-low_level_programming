@@ -19,8 +19,6 @@ void print_all(const char * const format, ...)
 			len++;
 		j++;
 	}
-
-	printf("len: %d\n", len);
 	va_start(valist, format);
 	while (format && format[i])
 	{
@@ -38,15 +36,15 @@ void print_all(const char * const format, ...)
 			case 's':
 				str = va_arg(valist, char *), c = 1;
 				if (str)
+				{
 					printf("%s", str);
-				else
-					printf("(nil)");
+					break;
+				}
+				printf("(nil)");
 				break;
-			default: 
-				c = 0;
 		}
 		if  (i < len && c)
-			printf(", ");
+			printf(", "), c = 0;
 		i++;
 	}
 	printf("\n"), va_end(valist);
