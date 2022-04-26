@@ -1,0 +1,5 @@
+#Executable folder
+x/
+
+#Main folder
+*-main.c
