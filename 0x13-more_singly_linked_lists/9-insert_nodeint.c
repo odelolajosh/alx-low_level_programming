@@ -28,8 +28,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	{
 		node->next = *head;
 		*head = node;
-	} 
-	else 
+	}
+	else
 	{
 		while (idx > 1 && h)
 		{
