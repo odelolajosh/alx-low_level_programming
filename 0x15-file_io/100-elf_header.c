@@ -119,7 +119,6 @@ void print_version(char *ptr)
 
 	printf("\n");
 }
-
 /**
  * print_data - prints data
  * @ptr: magic.
@@ -136,7 +135,6 @@ void print_data(char *ptr)
 	if (data == 2)
 		printf(", big endian\n");
 }
-
 /**
  * print_magic - prints magic info.
  * @ptr: magic.
@@ -152,14 +150,15 @@ void print_magic(char *ptr)
 		printf(" %02x", ptr[bytes]);
 
 	printf("\n");
+
 }
 
 /**
- * print_elf - check the version system.
+ * check_sys - check the version system.
  * @ptr: magic.
  * Return: no return.
  */
-void print_elf(char *ptr)
+void check_sys(char *ptr)
 {
 	char sys = ptr[4] + '0';
 
@@ -183,13 +182,13 @@ void print_elf(char *ptr)
 }
 
 /**
- * is_elf_file - check if it is an elf file.
- * @buf: magic.
+ * check_elf - check if it is an elf file.
+ * @ptr: magic.
  * Return: 1 if it is an elf file. 0 if not.
  */
-int is_elf_file(char *buf)
+int check_elf(char *ptr)
 {
-	int addr = (int)buf[0];
+	int addr = (int)ptr[0];
 	char E = ptr[1];
 	char L = ptr[2];
 	char F = ptr[3];
@@ -206,10 +205,10 @@ int is_elf_file(char *buf)
  * @argv: arguments vector.
  * Return: Always 0.
  */
-int main(int argc, char *argv)
+int main(int argc, char *argv[])
 {
-	int fd, b_read;
-	char buf[27];
+	int fd, ret_read;
+	char ptr[27];
 
 	if (argc != 2)
 	{
@@ -219,28 +218,28 @@ int main(int argc, char *argv)
 
 	fd = open(argv[1], O_RDONLY);
 
-	if (fd == -1)
+	if (fd < 0)
 	{
 		dprintf(STDERR_FILENO, "Err: file can not be open\n");
 		exit(98);
 	}
 
 	lseek(fd, 0, SEEK_SET);
-	b_read = read(fd, buf, 27);
+	ret_read = read(fd, ptr, 27);
 
-	if (b_read == -1)
+	if (ret_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Err: The file can not be read\n");
 		exit(98);
 	}
 
-	if (!is_elf_file(buf))
+	if (!check_elf(ptr))
 	{
 		dprintf(STDERR_FILENO, "Err: It is not an ELF\n");
 		exit(98);
 	}
 
-	print_elf(buf);
+	check_sys(ptr);
 	close(fd);
 
 	return (0);
