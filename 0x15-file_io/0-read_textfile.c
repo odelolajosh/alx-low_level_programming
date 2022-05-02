@@ -9,17 +9,20 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (filename == NULL)
 		return (0);
 
-	if ((fd = open(filename, O_RDONLY)) == -1)
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
 		return (0);
 
 	buf = malloc(sizeof(char) * letters);
 
-	if ((read_b = read(fd, buf, letters)) == -1)
+	read_b = read(fd, buf, letters);
+	if (read_b == -1)
 		return (0);
 
 	close(fd);
 
-	if ((write_b = write(STDOUT_FILENO, buf, read_b)) == -1)
+	write_b = write(STDOUT_FILENO, buf, read_b);
+	if (write_b == -1)
 		return (0);
 
 	free(buf);
