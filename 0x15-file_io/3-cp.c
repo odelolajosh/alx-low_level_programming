@@ -25,7 +25,7 @@ void error_file_access(int fd, char *filename, char *action, int code)
 {
 	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't %s file %s\n", action, filename);
+		dprintf(STDERR_FILENO, "Error: Can't %s %s\n", action, filename);
 		exit(code);
 	}
 }
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 		exit_with_error("Usage: cp file_from file_to", 97);
 
 	fd_from = open(argv[1], O_RDONLY);
-	error_file_access(fd_from, argv[1], "read from", 98);
+	error_file_access(fd_from, argv[1], "read from file", 98);
 
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_file_access(fd_to, argv[2], "write to", 99);
