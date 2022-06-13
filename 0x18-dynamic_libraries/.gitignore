@@ -1,5 +1,9 @@
 [0-9]-*.c
 100-atoi.c
+100-operation.c
 _putchar.c
 len
-_test_
+100-create-operation-lib.sh
+*test*/
+101/
+100-tests.py
