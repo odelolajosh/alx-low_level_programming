@@ -48,7 +48,7 @@ $ nm -D libdynamic.so
 ## How to use the Library
 Remember, dynamic library is store in the memory. So we have to add the location of the library files into the environmental variable to know where to find the functions.
 ```bash
-$ export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+$ export LD_PRELOAD=.:$LD_PRELOAD
 ```
 Then we can compile our test code
 ```bash
