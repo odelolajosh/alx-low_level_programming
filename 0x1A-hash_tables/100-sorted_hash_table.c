@@ -162,6 +162,9 @@ void shash_table_print(const shash_table_t *ht)
 	shash_node_t *current;
 	char *sep = "";
 
+	if (ht == NULL)
+		return;
+
 	current = ht->shead;
 	printf("{");
 	while (current)
@@ -181,6 +184,9 @@ void shash_table_print_rev(const shash_table_t *ht)
 {
 	shash_node_t *current;
 	char *sep = "";
+
+	if (ht == NULL)
+		return;
 
 	current = ht->stail;
 	printf("{");
