@@ -1,11 +1,12 @@
-# Usag
-
 CC = gcc
 SRC = $(wildcard *.c)
-OBJ = $(SRC:%.c=%)
+OBJ = $(SRC:%.c=%.o)
 NAME = school
 
-all: ${OBJ}
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-%.o:%.c
-	${CC} -c $<
+# Not necessary! `make` can deduce this recipe.
+# infact this whole rule is not necessary.
+# %.o: %.c
+# 	$(CC) -c $< -o $@
