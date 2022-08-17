@@ -5,12 +5,11 @@ NAME = school
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# builds your executable
-all: $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+.PHONY = all clean oclean fclean re
 
-# %.o: %.c
-# 	$(CC) $(CFLAGS) -c -o $@ $<
+# builds your executable
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
 # deletes all Emacs and Vim temporary files
 # along with the executable
