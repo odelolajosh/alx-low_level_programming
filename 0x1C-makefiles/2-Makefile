@@ -1,0 +1,11 @@
+# Usag
+
+CC = gcc
+SRC = $(wildcard *.c)
+OBJ = $(SRC:%.c=%)
+NAME = school
+
+all: ${OBJ}
+
+%.o:%.c
+	${CC} -c $<
