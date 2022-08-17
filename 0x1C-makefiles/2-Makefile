@@ -5,3 +5,8 @@ NAME = school
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
+
+# Not necessary! `make` can deduce this recipe.
+# infact this whole rule is not necessary.
+# %.o: %.c
+# 	$(CC) -c $< -o $@
