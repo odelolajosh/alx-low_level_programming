@@ -20,10 +20,10 @@ int jump_search(int *array, size_t size, int value)
 
 	do {
 		printf("Value checked array[%ld] = [%d]\n", up, array[up]);
-		low = up;
-		up += range;
 		if (array[up] == value)
 			return (up);
+		low = up;
+		up += range;
 	} while (up < size && array[up] < value);
 
 	printf("Value found between indexes [%ld] and [%ld]\n", low, up);
