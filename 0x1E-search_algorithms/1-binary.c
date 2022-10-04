@@ -30,6 +30,9 @@ int binary_search(int *array, size_t size, int value)
 {
 	size_t low = 0, high = size - 1, mid;
 
+	if (!array)
+		return (-1);
+
 	while (low <= high)
 	{
 		print_array(array, low, high);
