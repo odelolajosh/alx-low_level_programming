@@ -24,7 +24,8 @@ void print_array(int *array, size_t low, size_t high)
  * @array: a pointer to the first element of the array to search in
  * @size: the number of elements in array
  * @value: the value to search in
- * Return: the leftmost index where value is located if successful, otherwise -1
+ * Return: the leftmost index where value is located if successful,
+ * otherwise -1
  */
 int advanced_binary(int *array, size_t size, int value)
 {
@@ -32,7 +33,7 @@ int advanced_binary(int *array, size_t size, int value)
 
 	if (!array)
 		return (-1);
-	
+
 	while (left < right)
 	{
 		print_array(array, left, right - 1);
