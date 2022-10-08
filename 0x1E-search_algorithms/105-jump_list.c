@@ -21,9 +21,6 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	range = (size_t)sqrt(size);
 
 	do {
-		if (u->n == value)
-			return (u);
-
 		list = u, k += range;
 		while (u->next && u->index < k)
 			u = u->next;
