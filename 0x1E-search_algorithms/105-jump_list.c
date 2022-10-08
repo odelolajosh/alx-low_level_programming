@@ -15,7 +15,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	size_t range, k = 0;
 	listint_t *u = list;
 
-	if (!list || size == 0)
+	if (!list || size <= 0)
 		return (NULL);
 
 	range = (size_t)sqrt(size);
